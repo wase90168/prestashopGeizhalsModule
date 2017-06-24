@@ -1,4 +1,10 @@
 <?php
+// ------------------------------------------------------------------------------------------------------
+// -------------------------------------------- CONFIG --------------------------------------------------
+// ------------------------------------------------------------------------------------------------------
+
+
+//Uncomment these three lines if you want the errors to be displayed.
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ALL);
@@ -15,11 +21,14 @@ $shop_domain = "<SHOP URL (http or https)>";
 // Specify products from a country or leave empty for all products; e.g. "AT", "DE" or ""
 $iso_code = "<ISO_CODE>";
 
-$iso_code_select = 'AND c.iso_code = "' . $iso_code . '"'; //do not change!
-
 // Path to the db-config file of prestashop.
 require_once('../config/settings.inc.php');
 
+// ------------------------------------------------------------------------------------------------------
+// ------------------------------------------ END OF CONFIG ---------------------------------------------
+// ------------------------------------------------------------------------------------------------------
+
+$iso_code_select = 'AND c.iso_code = "' . $iso_code . '"';
 
 function getShippingCost($product_weight, $output_shipping){
     $shipping_array = array();
