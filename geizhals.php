@@ -1,4 +1,6 @@
 <?php
+header("Content-type: text/html; charset=utf-8");
+
 // ------------------------------------------------------------------------------------------------------
 // -------------------------------------------- CONFIG --------------------------------------------------
 // ------------------------------------------------------------------------------------------------------
@@ -101,6 +103,8 @@ $db_link = mysqli_connect (
                      _DB_PASSWD_,
                      _DB_NAME_
                     );
+
+mysqli_set_charset($db_link,"utf8");
 
 $sql = 'SELECT pr.id_product, pl.name, pr.reference, pr.price AS orig_price, sp.price AS reduc_price, sp.reduction, pl.link_rewrite AS prodRewrite, pr.weight, pr.ean13, t.rate AS taxRate, pl.available_now, pl.available_later, sa.quantity, cl.link_rewrite AS catRewrite FROM ' . $shop_dbSchemaName . '.' . $shop_dbPrefix . '_product pr
 JOIN ' . $shop_dbSchemaName . '.' . $shop_dbPrefix . '_stock_available sa ON pr.id_product = sa.id_product
